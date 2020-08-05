@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AudioPlayer.View"
         mc:Ignorable="d"
-        Title="AddNewSong" Height="450" Width="800">
+        Title="AddNewSong" Height="250" Width="500">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" Name="lblTitle" Content="Song name: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="3" Name="lblAuthor" Content="Song author: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="5" Name="lblDuration" Content="Song duration: " Padding="0" HorizontalAlignment="Right"/>
+
+        <TextBox Grid.Column="3" Grid.Row="1" Name="txtSong" Height="20" Width="150"
+                 Text="{Binding Song.Title, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="3" Name="txtCode" Height="20" Width="150"
+                 Text="{Binding Song.Author, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="5" Name="txtAmount" Height="20" Width="150" 
+                 Text="{Binding Song.Duration_s, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumbersTextBox" />
+
+
+
+
+        <Button Grid.Column="3" Grid.Row="17" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="17" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="seconds" Grid.Column="6" Margin="2.4,1.4,-44.6,0" Grid.Row="4" VerticalAlignment="Top" Height="27" FontSize="13" Grid.RowSpan="3" RenderTransformOrigin="0.53,-0.563"/>
+
     </Grid>
 </Window>
